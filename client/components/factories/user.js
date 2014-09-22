@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('mean-template')
+  angular.module('nflTweets')
   .factory('User', ['$http', function($http){
 
     function register(user){

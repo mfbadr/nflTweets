@@ -1,11 +1,11 @@
 {
-  "name": "mean-template",
+  "name": "nflTweets",
   "version": "0.0.0",
-  "homepage": "https://github.com/nss-cohort-2014-06-07/mean-template",
+  "homepage": "https://github.com/mfbadr/nflTweets",
   "authors": [
-    "Chyld Medford <chyld.medford@gmail.com>"
+    "Mikey Badr <mfbadr@gmail.com>"
   ],
-  "description": "The MEAN Template",
+  "description": "Quickly access a twitter feed for any list of nfl players, or high-quality tweets that mention them",
   "license": "MIT",
   "dependencies": {
     "angular": "1.3.0-rc.2",
