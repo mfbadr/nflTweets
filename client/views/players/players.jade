@@ -1,2 +1,9 @@
 h3 {{title}}
+//span(ng-repeat='p in players') {{p.displayName}}
 
+input(type='text', list ='playerList')
+datalist#playerList
+  option(value='1')
+  option(value='2')
+  option(value='3')
+  option(ng-repeat='p in players', value='{{p.displayName}}')
