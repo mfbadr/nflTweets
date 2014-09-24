@@ -28,6 +28,7 @@ module.exports = function(app, express){
 
   app.get('/players', players.all);
   app.post('/getplayertwitter', players.getTwitter);
+  app.post('/addplayertwitter', players.addTwitter);
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);

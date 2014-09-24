@@ -5,20 +5,38 @@
   .controller('PlayerCtrl', ['$scope', '$interval', 'Player', function($scope, $interval, Player){
     $scope.title = 'PLAYERS';
     $scope.somePlayers = [];
-    $scope.twitters = [];
+    $scope.player = {};
+    $scope.customTwitter = '';
+    $scope.results = {};
+    $scope.udf = undefined;
 
     Player.getAll().then(function(response){
-      //$scope.players = response.data.players;
-      for(var i = 0; i < 10; i++){
-        $scope.somePlayers.push(response.data.players[i]);
-        $scope.getTwitter(response.data.players[i].displayName);
-      }
+      $scope.players = response.data.players;
+      //for(var i = 0; i < 10; i++){
+        //$scope.somePlayers.push(response.data.players[i]);
+        //$scope.getTwitter(response.data.players[i].displayName);
+      //}
     });
+
+    $scope.randomPlayer = function(){
+      $scope.player = _.sample($scope.players);
+      $scope.results = {};
+    };
 
     $scope.getTwitter = function(name){
       Player.searchByName(name).then(function(response){
-        debugger;
-        $scope.twitters.push(response.data[0] || null);
+        $scope.results =  response.data[0];
+      });
+    };
+
+    $scope.addTwitter = function(screen_name){
+      Player.addTwitter($scope.player._id, screen_name).then(function(response){
+        toastr.success('Twitter added to player');
+        $scope.results = {};
+        $scope.player = {};
+        $scope.customTwitter = '';
+      }, function(response){
+        toastr.error('There was a problem adding this players twitter handle');
       });
     };
 

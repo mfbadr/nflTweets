@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  angular.module('nflTweets', ['ngRoute', 'LocalForageModule'])
+  angular.module('nflTweets', ['angular-loading-bar', 'ngRoute', 'LocalForageModule'])
   .config(['$routeProvider', '$httpProvider', '$localForageProvider', function($routeProvider, $httpProvider, $localForageProvider){
     $routeProvider
     .when('/', {templateUrl:'/views/home/home.html', controller:'HomeCtrl'})
@@ -12,7 +12,7 @@
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');
-    $localForageProvider.config({name:'mean-template', storeName:'cache', version:1.0});
+    $localForageProvider.config({name:'nflTweets', storeName:'cache', version:1.0});
   }]);
 })();
 

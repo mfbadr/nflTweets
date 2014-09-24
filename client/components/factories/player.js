@@ -13,7 +13,11 @@
       return $http.post('/getplayertwitter', {name:q});
     }
 
-    return {getAll:getAll, searchByName:searchByName};
+    function addTwitter(playerId, screen_name){
+      return $http.post('/addplayertwitter', {playerId:playerId, screen_name:screen_name});
+    }
+
+    return {getAll:getAll, searchByName:searchByName, addTwitter:addTwitter};
   }]);
 })();
 

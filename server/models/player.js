@@ -1,7 +1,7 @@
 'use strict';
 
 //var bcrypt = require('bcrypt'),
-    //Mongo  = require('mongodb');
+  var Mongo  = require('mongodb');
 
 function Player(){
 }
@@ -16,6 +16,7 @@ Player.all = function(cb){
 
 //var _id = Mongo.ObjectID(id);
 Player.getTwitter = function(q, cb){
+  console.log('player.getTwitter FIRED');
   var Twitter = require('mtwitter'),
       twitter = new Twitter({
         consumer_key: 'NTB1uJSI39pDl4sRMl9hjJmjt',
@@ -26,16 +27,16 @@ Player.getTwitter = function(q, cb){
 
   twitter.get('/users/search', {q: q, count:1},
     function(error, data, response){
-    //console.log('ERR', error);
-    //console.log('data', data);
-    //console.log('response IN MODEL', response.body);
-    //console.log('typeof  IN MODEL', typeof response.body);
     //console.log('DATA', data)
 
     cb(error, data, response);
   });
 };
 
+Player.addTwitter = function(playerId, screen_name, cb){
+  var _id = Mongo.ObjectID(playerId);
+  Player.collection.update({_id:_id},{$set: {screen_name:screen_name}}, cb);
+};
 
 module.exports = Player;
 
