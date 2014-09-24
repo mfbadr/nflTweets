@@ -11,9 +11,10 @@ button.btn.btn-primary(ng-click='randomPlayer()') Random Player
 
 .getTwitter(style='border: 1px solid black')
   .onePlayer
-    h4 {{player.displayName}}
-    h3(ng-show='results.varified')
+    h4 {{player.displayName}}: {{player.position}} - {{player.team}}
+    h3(ng-show='results.varified') Verified Tweeter
     h2(ng-show='player.screen_name') This player already has a twitter of {{player.screen_name}}
+    h2(ng-show='player.screen_name === null') This player has a screen_name, but it is null.
     button.btn.btn-primary(ng-click='getTwitter(player.displayName)') Get Twitter
     button.btn.btn-primary(ng-show='results.screen_name', ng-click='addTwitter(results.screen_name)') Add Twitter @{{results.screen_name}}
     input(ng-show='results.screen_name', type='text', ng-model='customTwitter')

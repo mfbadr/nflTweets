@@ -31,7 +31,7 @@
 
     $scope.addTwitter = function(screen_name){
       Player.addTwitter($scope.player._id, screen_name).then(function(response){
-        toastr.success('Twitter added to player');
+        toastr.success('Twitter ' + screen_name + ' added to' + $scope.player.displayName);
         $scope.results = {};
         $scope.player = {};
         $scope.customTwitter = '';
