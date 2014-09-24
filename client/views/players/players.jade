@@ -1,9 +1,17 @@
 h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
 
-input(type='text', list ='playerList')
-datalist#playerList
-  option(value='1')
-  option(value='2')
-  option(value='3')
-  option(ng-repeat='p in players', value='{{p.displayName}}')
+//-input(type='text', list ='playerList')
+//-datalist#playerList
+  //-option(ng-repeat='p in players', value='{{p.displayName}}')
+    //cant get value to be _id and label to be displayName and autocomplete to work
+
+
+.getTwitter(ng-repeat='p in somePlayers', style='border: 1px solid black')
+  .onePlayer
+    h4 {{p.displayName}}
+    h3 @{{twitters[$index].screen_name}}
+    p {{twitters[$index].description}}
+
+
+

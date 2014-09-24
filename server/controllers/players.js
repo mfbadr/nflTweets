@@ -13,3 +13,9 @@ exports.all = function(req, res){
   });
 };
 
+exports.getTwitter = function(req, res){
+  Player.getTwitter(req.body.name, function(e, data, response){
+    res.send(data);
+    res.status(200).end();
+  });
+};

@@ -1,5 +1,6 @@
 (function(){
   'use strict';
+  //var twitterSecret = process.env.TWITTER_SECRET_NFL;
 
   angular.module('nflTweets')
   .factory('Player', ['$http', function($http){
@@ -8,7 +9,11 @@
       return $http.get('/players');
     }
 
-    return {getAll:getAll};
+    function searchByName(q){
+      return $http.post('/getplayertwitter', {name:q});
+    }
+
+    return {getAll:getAll, searchByName:searchByName};
   }]);
 })();
 
