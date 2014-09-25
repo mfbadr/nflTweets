@@ -1,0 +1,24 @@
+h3 {{title}}
+//span(ng-repeat='p in players') {{p.displayName}}
+
+.row
+  .col-xs-6
+    h2 Title Your List
+    input(type='text', ng-model='list.name', autofocus)
+  .col-xs-6(ng-show='list.name')
+    h2 Add Players to {{list.name}}
+    <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
+    button.btn.btn-primary(ng-click='addPlayer()', ng-show='player.originalObject') Add {{player.originalObject.displayName}} to {{list.name}}
+
+br
+
+.panel.panel-primary(ng-show='list.players[0]')
+  .panel-heading
+    h3.panel-title {{list.name}}
+  .panel-body
+    .col-xs-6
+      h5(ng-repeat='p in listPlayers') {{p.displayName}} : {{p.position}} - {{p.team}}
+    .col-xs-6
+      button.btn.btn-primary(ng-click='saveList()') Save Team
+
+
