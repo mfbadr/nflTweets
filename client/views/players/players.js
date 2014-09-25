@@ -17,16 +17,25 @@
       //}
     });
 
-    $scope.randomPlayer = function(){
-      $scope.player = _.sample($scope.players);
-      $scope.results = {};
-    };
-
-    $scope.getTwitter = function(name){
-      Player.searchByName(name).then(function(response){
+    $scope.setPlayer = function(){
+      $scope.player = $scope.player.originalObject || $scope.player;
+      Player.searchByName($scope.player.displayName).then(function(response){
         $scope.results =  response.data[0];
       });
     };
+
+    $scope.randomPlayer = function(){
+      $scope.player = _.sample($scope.players);
+      Player.searchByName($scope.player.displayName).then(function(response){
+        $scope.results =  response.data[0];
+      });
+    };
+
+    //$scope.getTwitter = function(name){
+      //Player.searchByName(name).then(function(response){
+        //$scope.results =  response.data[0];
+      //});
+    //};
 
     $scope.addTwitter = function(screen_name){
       Player.addTwitter($scope.player._id, screen_name).then(function(response){

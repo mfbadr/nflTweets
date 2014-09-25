@@ -12,6 +12,7 @@
       $scope.players = response.data.players;
     });
 
+
     $scope.addPlayer = function(){
       $scope.list.players.push($scope.player.originalObject._id);
       $scope.listPlayers.push($scope.player.originalObject);

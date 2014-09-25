@@ -10,7 +10,6 @@ h3 {{title}}
     <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
     button.btn.btn-primary(ng-click='addPlayer()', ng-show='player.originalObject') Add {{player.originalObject.displayName}} to {{list.name}}
 
-br
 
 .panel.panel-primary(ng-show='list.players[0]')
   .panel-heading
