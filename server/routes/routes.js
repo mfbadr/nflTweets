@@ -26,12 +26,13 @@ module.exports = function(app, express){
   app.post('/register', users.register);
   app.post('/login', users.login);
 
-  app.get('/players', players.all);
-  app.post('/getplayertwitter', players.getTwitter);
-  app.post('/addplayertwitter', players.addTwitter);
 
   app.use(security.bounce);
   app.delete('/logout', users.logout);
+
+  app.get('/players', players.all);
+  app.post('/getplayertwitter', players.getTwitter);
+  app.post('/addplayertwitter', players.addTwitter);
 
   console.log('Express: Routes Loaded');
 };

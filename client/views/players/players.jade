@@ -1,18 +1,14 @@
 h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
 
-//-input(type='text', list ='playerList')
-//-datalist#playerList
-  //-option(ng-repeat='p in players', value='{{p.displayName}}')
-    //cant get value to be _id and label to be displayName and autocomplete to work
+//<angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
 
 
 button.btn.btn-primary(ng-click='randomPlayer()') Random Player
-
 .getTwitter(style='border: 1px solid black')
   .onePlayer
-    h4 {{player.displayName}}: {{player.position}} - {{player.team}}
-    h3(ng-show='results.varified') Verified Tweeter
+    h4 {{player.displayName}}: {{player.position}} - {{player.team}} - {{player.college}}
+    h3(ng-show='results.verified') Verified Tweeter
     h2(ng-show='player.screen_name') This player already has a twitter of {{player.screen_name}}
     h2(ng-show='player.screen_name === null') This player has a screen_name, but it is null.
     button.btn.btn-primary(ng-click='getTwitter(player.displayName)') Get Twitter
@@ -20,8 +16,6 @@ button.btn.btn-primary(ng-click='randomPlayer()') Random Player
     input(ng-show='results.screen_name', type='text', ng-model='customTwitter')
     button.btm.btn-primary(ng-show='results.screen_name', ng-click='addTwitter(customTwitter)') Add Custom twitter @{{customTwitter}}
     button.btm.btn-primary(ng-show='results.screen_name', ng-click='addTwitter(udf)') Add Undefined as Twitter
-
-
     pre {{results | json}}
 
 

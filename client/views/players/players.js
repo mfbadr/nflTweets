@@ -5,7 +5,6 @@
   .controller('PlayerCtrl', ['$scope', '$interval', 'Player', function($scope, $interval, Player){
     $scope.title = 'PLAYERS';
     $scope.somePlayers = [];
-    $scope.player = {};
     $scope.customTwitter = '';
     $scope.results = {};
     $scope.udf = undefined;

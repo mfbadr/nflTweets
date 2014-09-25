@@ -35,6 +35,9 @@ Player.getTwitter = function(q, cb){
 
 Player.addTwitter = function(playerId, screen_name, cb){
   var _id = Mongo.ObjectID(playerId);
+  if(!screen_name){
+    console.log('undefined');
+  }
   Player.collection.update({_id:_id},{$set: {screen_name:screen_name}}, cb);
 };
 
