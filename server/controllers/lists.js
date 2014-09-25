@@ -5,9 +5,9 @@ var List = require('../models/list');
 exports.add = function(req, res){
   List.add(req.body.list, req.user, function(err, list){
     if(list){
-      res.send(200).end();
+      res.status(200).end();
     }else{
-      res.send(400).end();
+      res.status(400).end();
     }
   });
 };
