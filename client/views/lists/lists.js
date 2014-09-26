@@ -12,6 +12,11 @@
       $scope.players = response.data.players;
     });
 
+    List.findByUser().then(function(response){
+      $scope.lists = response.data;
+      //debugger;
+    });
+
 
     $scope.addPlayer = function(){
       $scope.list.players.push($scope.player.originalObject._id);

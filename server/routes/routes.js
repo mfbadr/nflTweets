@@ -8,7 +8,7 @@ var morgan         = require('morgan'),
     debug          = require('../lib/debug'),
     security       = require('../lib/security'),
     home           = require('../controllers/home'),
-    list           = require('../controllers/lists'),
+    lists          = require('../controllers/lists'),
     players        = require('../controllers/players'),
     users          = require('../controllers/users');
 
@@ -34,7 +34,8 @@ module.exports = function(app, express){
   app.get('/players', players.all);
   app.post('/getplayertwitter', players.getTwitter);
   app.post('/addplayertwitter', players.addTwitter);
-  app.post('/addlist', list.add);
+  app.post('/addlist', lists.add);
+  app.get('/listsbyuser', lists.findByUser);
 
   console.log('Express: Routes Loaded');
 };

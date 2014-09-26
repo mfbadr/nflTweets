@@ -11,3 +11,14 @@ exports.add = function(req, res){
     }
   });
 };
+
+exports.findByUser = function(req, res){
+  List.findByUser(req.user._id, function(err, lists){
+    if(lists){
+      res.send(lists);
+      res.status(200).end();
+    }else{
+      res.status(400).end();
+    }
+  });
+};

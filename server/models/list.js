@@ -23,6 +23,11 @@ List.add = function(list, user, cb){
   List.collection.save(list, cb);
 };
 
+List.findByUser = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  List.collection.find({userId:_id}).toArray(cb);
+};
+
 //var _id = Mongo.ObjectID(id);
 //Player.getTwitter = function(q, cb){
   //console.log('player.getTwitter FIRED');
@@ -34,7 +39,7 @@ List.add = function(list, user, cb){
         //access_token_secret: process.env.TWITTER_TOKEN_SECRET_NFL
       //});
 
-  //twitter.get('/users/search', {q: q, count:1},
+  //twitter.get('/users/search', {q: q, count:2},
     //function(error, data, response){
     ////console.log('DATA', data)
 

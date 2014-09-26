@@ -9,11 +9,16 @@
       //return $http.post('/addplayertwitter', {playerId:playerId, screen_name:screen_name});
     //}
 
+    function findByUser(){
+      return $http.get('/listsbyuser');
+    }
+
     function saveList(list){
       return $http.post('/addlist', {list:list});
     }
 
-    return {saveList:saveList};
+    return {findByUser:findByUser, saveList:saveList};
+
   }]);
 })();
 

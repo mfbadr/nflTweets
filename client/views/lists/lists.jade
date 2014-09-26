@@ -2,8 +2,14 @@ h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
 
 .row
+  h2 Your lists
+  ul
+    li(ng-repeat='l in lists')
+      a(href='/#/results/{{l._id}}') {{l.name}}
+
+.row
   .col-xs-6
-    h2 Title Your List
+    h2 Add a List
     input(type='text', ng-model='list.name', autofocus)
   .col-xs-6(ng-show='list.name')
     h2 Add Players to {{list.name}}
