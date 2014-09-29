@@ -1,20 +1,21 @@
 h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
 
-.row
+.container-fluid
   h2 Your lists
   ul
     li(ng-repeat='l in lists')
       a(href='/#/results/{{l._id}}') {{l.name}}
 
-.row
-  .col-xs-6
-    h2 Add a List
-    input(type='text', ng-model='list.name', autofocus)
-  .col-xs-6(ng-show='list.name')
-    h2 Add Players to {{list.name}}
-    <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
-    button.btn.btn-primary(ng-click='addPlayer()', ng-show='player.originalObject') Add {{player.originalObject.displayName}} to {{list.name}}
+.container-fluid
+  .row
+    .col-xs-6
+      h2 Add a List
+      input(type='text', ng-model='list.name', autofocus)
+    .col-xs-6(ng-show='list.name')
+      h2 Add Players to {{list.name}}
+      <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
+      button.btn.btn-primary(ng-click='addPlayer()', ng-show='player.originalObject') Add {{player.originalObject.displayName}} to {{list.name}}
 
 
 .panel.panel-primary(ng-show='list.players[0]')

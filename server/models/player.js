@@ -14,6 +14,11 @@ Player.all = function(cb){
   Player.collection.find().toArray(cb);
 };
 
+Player.findById = function(id, cb){
+  var _id = Mongo.ObjectID(id);
+  Player.collection.findOne({_id:_id}, cb);
+};
+
 //var _id = Mongo.ObjectID(id);
 Player.getTwitter = function(q, cb){
   console.log('player.getTwitter FIRED');

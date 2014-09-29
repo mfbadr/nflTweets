@@ -10,6 +10,7 @@ var morgan         = require('morgan'),
     home           = require('../controllers/home'),
     lists          = require('../controllers/lists'),
     players        = require('../controllers/players'),
+    results        = require('../controllers/results'),
     users          = require('../controllers/users');
 
 module.exports = function(app, express){
@@ -36,6 +37,7 @@ module.exports = function(app, express){
   app.post('/addplayertwitter', players.addTwitter);
   app.post('/addlist', lists.add);
   app.get('/listsbyuser', lists.findByUser);
+  app.post('/getplayers', results.getPlayers);
 
   console.log('Express: Routes Loaded');
 };
