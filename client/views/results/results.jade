@@ -5,3 +5,6 @@ h2 {{listId}}
 h3 Players
 h4(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
 
+button.btn.btn-primary(ng-click='getTweets()') Get Tweets
+pre {{tweets | json}}
+

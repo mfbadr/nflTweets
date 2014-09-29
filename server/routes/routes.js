@@ -38,6 +38,7 @@ module.exports = function(app, express){
   app.post('/addlist', lists.add);
   app.get('/listsbyuser', lists.findByUser);
   app.post('/getplayers', results.getPlayers);
+  app.get('/tweets', results.getTweets);
 
   console.log('Express: Routes Loaded');
 };

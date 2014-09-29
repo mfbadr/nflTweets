@@ -16,6 +16,7 @@ exports.all = function(req, res){
 exports.getTwitter = function(req, res){
   Player.getTwitter(req.body.name, function(e, data, response){
     res.send(data);
+    console.log('debug', e, data, response);
     console.log('get twitter sent data');
     res.status(200).end();
   });

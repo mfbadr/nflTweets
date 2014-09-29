@@ -11,6 +11,12 @@
       $scope.list = results.data;
     });
 
+    $scope.getTweets = function(){
+      Result.getTweets().then(function(results){
+        debugger;
+      });
+    };
+
   }]);
 })();
 

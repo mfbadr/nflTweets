@@ -13,7 +13,11 @@
       return $http.post('/getplayers', {listId:listId});
     }
 
-    return {getPlayersById:getPlayersById};
+    function getTweets(){
+      return $http.get('/tweets');
+    }
+
+    return {getPlayersById:getPlayersById, getTweets:getTweets};
 
   }]);
 })();
