@@ -7,7 +7,8 @@
     $scope.listId = $routeParams.listId;
 
     Result.getPlayersById($scope.listId).then(function(results){
-      debugger;
+      //debugger;
+      $scope.list = results.data;
     });
 
   }]);

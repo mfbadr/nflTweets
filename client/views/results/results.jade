@@ -1,5 +1,7 @@
 h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
-
-h1 {{listId}}
+h1 Results for {{list.name}}
+h2 {{listId}}
+h3 Players
+h4(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
 

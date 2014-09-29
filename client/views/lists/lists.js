@@ -27,7 +27,11 @@
 
     $scope.saveList = function(){
       List.saveList($scope.list).then(function(response){
-        debugger;
+        toastr.success('List ' + $scope.list.name + 'saved');
+        $scope.lists.push($scope.list);
+        $scope.list = null;
+      }, function(response){
+        toastr.error('There was problem saving your list. If these problem persists let us know.');
       });
     };
 
