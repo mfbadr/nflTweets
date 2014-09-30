@@ -8,6 +8,10 @@
       return $http.post('/register', user);
     }
 
+    function user(){
+      return $http.get('/user');
+    }
+
     function login(user){
       return $http.post('/login', user);
     }
@@ -16,7 +20,7 @@
       return $http.delete('/logout');
     }
 
-    return {register:register, login:login, logout:logout};
+    return {register:register, login:login, logout:logout, user:user};
   }]);
 })();
 

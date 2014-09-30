@@ -9,11 +9,11 @@
 
     $scope.$on('authenticated', function(event, email){
       if(email === 'anonymous'){email = null;}
-
       $localForage.setItem('email', email).then(function(){
         $scope.email = email;
       });
     });
+
   }]);
 })();
 

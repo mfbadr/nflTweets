@@ -25,12 +25,18 @@
 }
 
 body {
-  background-color: @GRAY;
+  //SINGLE HI RES IMAGE
   //background: url('/assets/img/background-img.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  /*-webkit-background-size: cover;*/
+  /*-moz-background-size: cover;*/
+  /*-o-background-size: cover;*/
+  /*background-size: cover;*/
+
+  //tiled subtle background
+  background-image: url('/assets/img/green_cup.png');
+
+  //background color
+  //background-color: @GRAY;
 }
 
 /*
@@ -39,6 +45,10 @@ body{
 }
 */
 input.ng-invalid, select.ng-invalid{
-  background-color: @RED;
+  background-color: IndianRed;
+}
+
+input.ng-valid, select.ng-valid{
+  background-color: DarkSeaGreen;
 }
 

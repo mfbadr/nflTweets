@@ -27,6 +27,7 @@ module.exports = function(app, express){
   app.get('/home', home.index);
   app.post('/register', users.register);
   app.post('/login', users.login);
+  app.get('/user', users.user);
 
 
   app.use(security.bounce);

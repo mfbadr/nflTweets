@@ -12,6 +12,15 @@ exports.register = function(req, res){
   });
 };
 
+exports.user = function(req, res){
+  if(req.user){
+    res.send(req.user);
+    res.status(200).end();
+  }else{
+    res.status(400).end();
+  }
+};
+
 exports.login = function(req, res){
   User.login(req.body, function(err, user){
     if(user){

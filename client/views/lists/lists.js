@@ -30,6 +30,7 @@
         toastr.success('List ' + $scope.list.name + 'saved');
         $scope.lists.push($scope.list);
         $scope.list = null;
+        //This should redirect to tweets page
       }, function(response){
         toastr.error('There was problem saving your list. If these problem persists let us know.');
       });
