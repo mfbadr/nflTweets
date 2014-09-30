@@ -5,6 +5,7 @@
   .controller('ResultCtrl', ['$routeParams', '$scope', '$interval', 'Player', 'List','Result', function($routeParams, $scope, $interval, Player, List, Result){
     $scope.title = 'RESULTS';
     $scope.listId = $routeParams.listId;
+    $scope.filteredTweets = [];
 
     Result.getPlayersById($scope.listId).then(function(results){
       //debugger;
@@ -13,10 +14,20 @@
 
     $scope.getTweets = function(){
       Result.getTweets().then(function(results){
-        debugger;
-        //use _ to pluck tweets that dont mention players on list
+        //debugger;
+        $scope.rawTweets = results.data;
       });
     };
+
+    $scope.filterTweets = function(){
+      $scope.list.players.forEach(function(player){
+        var tempTweets = _.filter($scope.rawTweets, function(t){
+          return t.text.indexOf(player.lname) !== -1;
+        });
+        $scope.filteredTweets = $scope.filteredTweets.concat(tempTweets);
+      });
+    };
+
 
     // add function to do a targeted query for individual players
   }]);

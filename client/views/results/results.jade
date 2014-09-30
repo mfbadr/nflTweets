@@ -6,5 +6,13 @@ h3 Players
 h4(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
 
 button.btn.btn-primary(ng-click='getTweets()') Get Tweets
-pre {{tweets | json}}
+button.btn.btn-primary(ng-click='filterTweets()') Filter Tweets
+
+.tweet(ng-repeat='t in filteredTweets', style='border: 1px solid pink')
+  h4 {{t.user.name}}
+  h3 {{t.text}}
+
+.tweet(ng-repeat='t in rawTweets', style='border: 1px solid black')
+  h4 {{t.user.name}}
+  h3 {{t.text}}
 
