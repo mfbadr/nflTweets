@@ -14,9 +14,11 @@
     $scope.getTweets = function(){
       Result.getTweets().then(function(results){
         debugger;
+        //use _ to pluck tweets that dont mention players on list
       });
     };
 
+    // add function to do a targeted query for individual players
   }]);
 })();
 
