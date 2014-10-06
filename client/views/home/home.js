@@ -7,10 +7,10 @@
     $scope.getUser = function(){
       User.user().then(function(response){
         $scope.client = response.data;
-        debugger;
+        //debugger;
       }, function(response){
-        $scope.clinet = null;
-        debugger;
+        $scope.client = null;
+        //debugger;
       });
     };
 

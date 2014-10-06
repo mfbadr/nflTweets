@@ -7,6 +7,7 @@
     $scope.listId = $routeParams.listId;
     $scope.filteredTweets = [];
 
+
     Result.getPlayersById($scope.listId).then(function(results){
       //debugger;
       $scope.list = results.data;
@@ -27,6 +28,16 @@
         $scope.filteredTweets = $scope.filteredTweets.concat(tempTweets);
       });
     };
+
+    $scope.getFilteredTweets = function(){
+      Result.getTweets().then(function(results){
+        //debugger;
+        $scope.rawTweets = results.data;
+        $scope.filterTweets();
+      });
+    };
+
+    $scope.getFilteredTweets();
 
 
     // add function to do a targeted query for individual players

@@ -1,18 +1,33 @@
-h3 {{title}}
+//h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
-h1 Results for {{list.name}}
-h2 {{listId}}
-h3 Players
-h4(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
+//-h1 Tweets for {{list.name}}
+//-//h2 {{listId}}
+//-h3 Players
+//-h5(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
 
-button.btn.btn-primary(ng-click='getTweets()') Get Tweets
-button.btn.btn-primary(ng-click='filterTweets()') Filter Tweets
+.container-fluid
+  .row
+    h1 Tweets for {{list.name}}
+    //-button.btn.btn-primary(ng-click='getTweets()') Get Tweets
+    button.btn.btn-primary(ng-click='getFilteredTweets()') Get Tweets
+  .row
+    .col-xs-2
+      h4 Players
+      h5(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
+    .col-xs-10
+      .tweet(ng-repeat='t in filteredTweets')
+        a(href='https://www.twitter.com/{{t.user.screen_name}}')
+          img(src='{{t.user.profile_image_url}}') 
+          h4 {{t.user.name}} 
+          h5 @{{t.user.screen_name}}
+        //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
+        //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
+        h3 {{t.text}}
 
-.tweet(ng-repeat='t in filteredTweets', style='border: 1px solid pink')
-  h4 {{t.user.name}}
-  h3 {{t.text}}
 
-.tweet(ng-repeat='t in rawTweets', style='border: 1px solid black')
+
+
+//-.tweet(ng-repeat='t in rawTweets', style='border: 1px solid black')
   h4 {{t.user.name}}
   h3 {{t.text}}
 
