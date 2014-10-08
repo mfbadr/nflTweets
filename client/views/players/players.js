@@ -11,10 +11,6 @@
 
     Player.getAll().then(function(response){
       $scope.players = response.data.players;
-      //for(var i = 0; i < 10; i++){
-        //$scope.somePlayers.push(response.data.players[i]);
-        //$scope.getTwitter(response.data.players[i].displayName);
-      //}
     });
 
     $scope.setPlayer = function(){

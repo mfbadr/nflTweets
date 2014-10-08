@@ -9,7 +9,6 @@
 
 
     Result.getPlayersById($scope.listId).then(function(results){
-      //debugger;
       $scope.list = results.data;
     });
 

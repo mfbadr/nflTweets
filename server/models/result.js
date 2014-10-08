@@ -23,23 +23,56 @@ Result.getPlayers = function(listId, cb){
 };
 
 Result.getTweets = function(cb){
-  console.log('function init');
+  //console.log('function init');
   var Twitter = require('mtwitter'),
       twitter = new Twitter({
         consumer_key: 'NTB1uJSI39pDl4sRMl9hjJmjt',
         consumer_secret: process.env.TWITTER_SECRET_NFL,
         access_token_key: '2228885144-4FcxKKgCInqfumIDO9bo0kT1VnJHKpUoDI6IUyR',
         access_token_secret: process.env.TWITTER_TOKEN_SECRET_NFL
-      });
-  console.log('before get');
-  twitter.get('/lists/statuses', {list_id:171657820, count:1000},
+      }),
+    //p = 1,
+    rawTweets = [];
+
+  /*
+  // asynchrnous for loop is tricky, maybe later refactor this
+  //
+  twitterCallback = function(err, data, response){
+    rawTweets = rawTweets.concat(data);
+    console.log('DATA LENGTH', data.length);
+  };
+
+  while(rawTweets.length < 1000){
+    console.log('p', p);
+    //twitter.get('/lists/statuses', {list_id:171657820, count:200, page:1},
+    twitter.get('/lists/statuses', {list_id:171657820, count:200, page:p}, twitterCallback);
+    console.log('rawTWEETS', rawTweets);
+    p++;
+  }
+  cb(rawTweets);
+  */
+
+  // for now let us descend into callback hell...
+  twitter.get('/lists/statuses', {list_id:171657820, count:200, page:1},
     function(error, data, response){
-    console.log('during get');
-
-    console.log('ERROR', error);
-    console.log('DATA', data);
-
-    cb(error, data, response);
+    rawTweets = rawTweets.concat(data);
+    twitter.get('/lists/statuses', {list_id:171657820, count:200, page:2},
+      function(error, data, response){
+      rawTweets = rawTweets.concat(data);
+      twitter.get('/lists/statuses', {list_id:171657820, count:200, page:3},
+        function(error, data, response){
+        rawTweets = rawTweets.concat(data);
+        twitter.get('/lists/statuses', {list_id:171657820, count:200, page:4},
+          function(error, data, response){
+          rawTweets = rawTweets.concat(data);
+          twitter.get('/lists/statuses', {list_id:171657820, count:200, page:4},
+            function(error, data, response){
+            rawTweets = rawTweets.concat(data);
+            cb(rawTweets);
+          });
+        });
+      });
+    });
   });
 };
 

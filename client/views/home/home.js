@@ -15,7 +15,9 @@
     };
 
     $scope.getUser();
+
 //*************LOG IN ****************//
+
     function loginSuccess(response){
       toastr.success('Successful login.');
       $scope.regUser = null;
@@ -43,6 +45,7 @@
       $location.path('/');
       User.login($scope.regUser).then(loginSuccess, loginFailure);
     }
+
     $scope.register = function(){
       User.register($scope.regUser).then(registerSuccess, registerFailure);
     };

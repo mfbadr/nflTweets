@@ -1,0 +1,46 @@
+//h3 {{title}}
+//span(ng-repeat='p in players') {{p.displayName}}
+//-h1 Tweets for {{list.name}}
+//-//h2 {{listId}}
+//-h3 Players
+//-h5(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
+
+.container-fluid(ng-show='!rawTweets')
+  .row
+    h1 Please wait while we get the latest tweets from our trusted tweeters...
+    button.btn.btn-warning(ng-click='getTweets()') Not working? Click here to try again
+.container-fluid(ng-show='rawTweets')
+  .row
+    h2(ng-show='list') Looked through {{rawTweets.length}} tweets to find {{filteredTweets.length}} that mention {{list.name}}
+    h2(ng-show='!list') Loaded {{rawTweets.length}} tweets. Click a team to filter them
+    h5 If the tweets aren't showing, try clicking the team name again.
+    h5 Tweets are filtered by players' last name, and are not guaranteed to be about that player
+    //-button.btn.btn-primary(ng-click='getTweets()') Get Tweets
+    //-button.btn.btn-warning(ng-show='list', ng-click='getTweets(); setList(list)') Tweets not showing?
+  .row
+    .col-xs-2
+      <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
+      button.btn.btn-primary(ng-click='setPlayer()') Filter for a specific player
+      button.btn.btn-default.btn-xs.btn-block(ng-repeat='l in lists', ng-click='setList(l)') {{l.name}}
+        ul(ng-show='l._id === list._id')
+          li(ng-repeat='p in list.players') {{p.displayName}}
+    .col-xs-10
+      //-.noTweet(ng-show='filteredTweets.length === 0')
+        //-h3 There are no tweets to show for {{list.name}}
+      .tweet(ng-repeat='t in filteredTweets')
+        a(href='https://www.twitter.com/{{t.user.screen_name}}')
+          img(src='{{t.user.profile_image_url}}') 
+          h4 {{t.user.name}} 
+          h5 @{{t.user.screen_name}}
+        //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
+        //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
+        //-h3(ng-bind-html='{{t.text}}')
+        h3 {{t.text}}
+
+
+
+
+//-.tweet(ng-repeat='t in rawTweets', style='border: 1px solid black')
+  h4 {{t.user.name}}
+  h3 {{t.text}}
+

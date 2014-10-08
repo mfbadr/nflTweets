@@ -11,9 +11,9 @@ exports.getPlayers = function(req, res){
 
 exports.getTweets = function(req, res){
   console.log('getTweets FIRED FROM CONTROLLER 1');
-  Result.getTweets(function(err, data, response){
+  Result.getTweets(function(rawTweets){
     //console.log('debug', err, data, response);
-    res.send(data);
+    res.send(rawTweets);
     res.status(200).end();
   });
 };
