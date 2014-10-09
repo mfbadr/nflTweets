@@ -37,6 +37,7 @@ module.exports = function(app, express){
   app.post('/getplayertwitter', players.getTwitter);
   app.post('/addplayertwitter', players.addTwitter);
   app.post('/addlist', lists.add);
+  app.post('/updatelist', lists.update);
   app.get('/listsbyuser', lists.findByUser);
   app.post('/getplayers', results.getPlayers);
   app.get('/tweets', results.getTweets);

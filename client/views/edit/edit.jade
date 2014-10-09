@@ -1,0 +1,26 @@
+//h3 {{title}}
+//span(ng-repeat='p in players') {{p.displayName}}
+//-h1 Tweets for {{list.name}}
+//-//h2 {{listId}}
+//-h3 Players
+//-h5(ng-repeat='p in list.players') {{p.displayName}} - {{p.position}} : {{p.team}}
+
+.container-fluid
+  .row
+    h1 Edit {{list.name}}
+    //-button.btn.btn-primary(ng-click='getTweets()') Get Tweets
+  .row
+    .col-xs-6
+      h3 Players on {{list.name}}
+      h5(ng-repeat='p in list.players') {{p.displayName}} &nbsp;
+        span.btn.btn-danger.btn-xs(ng-click='removePlayer(p)') X
+
+    .col-xs-6
+      h3 Rename your list
+      input(type='text', ng-model='list.name')
+      br
+      h3 Add Players to your list
+      <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
+      button.btn.btn-primary(ng-click='addPlayer()', ng-show='player.originalObject') Add {{player.originalObject.displayName}} to {{list.name}}
+  .row
+    button.btn.btn-primary.btn-lg.btn-block(ng-click='saveList()') Save changes to {{list.name}}

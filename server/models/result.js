@@ -36,7 +36,7 @@ Result.getTweets = function(cb){
 
   /*
   // asynchrnous for loop is tricky, maybe later refactor this
-  //
+  // async.whilst ??
   twitterCallback = function(err, data, response){
     rawTweets = rawTweets.concat(data);
     console.log('DATA LENGTH', data.length);

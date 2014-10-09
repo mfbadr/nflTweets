@@ -7,7 +7,6 @@
     $scope.listId = $routeParams.listId;
     $scope.filteredTweets = [];
 
-
     Result.getPlayersById($scope.listId).then(function(results){
       $scope.list = results.data;
     });

@@ -2,10 +2,10 @@ h3 {{title}}
 //span(ng-repeat='p in players') {{p.displayName}}
 
 .container-fluid
-  h2 Your lists
+  h2 Click a list to Edit it
   ul
     li(ng-repeat='l in lists')
-      a(href='/#/results/{{l._id}}') {{l.name}}
+      a(href='/#/edit/{{l._id}}') {{l.name}}
 
 .container-fluid
   .row

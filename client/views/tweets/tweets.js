@@ -51,6 +51,7 @@
     };
 
     $scope.setPlayer = function(){
+      $scope.filteredTweets = [];
       $scope.player = $scope.player.originalObject || $scope.player;
       $scope.list = {name:$scope.player.displayName, players:[$scope.player]};
       $scope.filterTweets();

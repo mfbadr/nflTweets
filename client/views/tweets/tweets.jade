@@ -20,21 +20,22 @@
   .row
     .col-xs-2
       <angucomplete type='text' id='playerSelect' placeholder="Search Players" pause='200' selectedObject='player' localdata='players' searchfields='fname,lname,displayName' titlefield='displayName' descriptionfield='position' inputclass='form-control' minlength='1' />
-      button.btn.btn-primary(ng-click='setPlayer()') Filter for a specific player
+      button.btn.btn-primary.btn-xs.btn-block(ng-click='setPlayer()') Filter for a specific player
       button.btn.btn-default.btn-xs.btn-block(ng-repeat='l in lists', ng-click='setList(l)') {{l.name}}
         ul(ng-show='l._id === list._id')
           li(ng-repeat='p in list.players') {{p.displayName}}
     .col-xs-10
       //-.noTweet(ng-show='filteredTweets.length === 0')
         //-h3 There are no tweets to show for {{list.name}}
-      .tweet(ng-repeat='t in filteredTweets')
+      .tweet(ng-repeat='t in filteredTweets track by $index')
         a(href='https://www.twitter.com/{{t.user.screen_name}}')
-          img(src='{{t.user.profile_image_url}}') 
-          h4 {{t.user.name}} 
+          img(src='{{t.user.profile_image_url}}')
+          h4 {{t.user.name}}
           h5 @{{t.user.screen_name}}
         //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
         //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
         //-h3(ng-bind-html='{{t.text}}')
+        h5 {{t.created_at}}
         h3 {{t.text}}
 
 

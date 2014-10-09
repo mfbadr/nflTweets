@@ -33,6 +33,16 @@ List.findById = function(id, cb){
   List.collection.findOne({_id:_id}, cb);
 };
 
+List.update = function(list, cb){
+  list._id = Mongo.ObjectID(list._id);
+  list.userId = Mongo.ObjectID(list.userId);
+  list.players = list.players.map(function(p){
+    return Mongo.ObjectID(p._id);
+  });
+  console.log(list);
+  List.collection.save(list, cb);
+};
+
 //var _id = Mongo.ObjectID(id);
 //Player.getTwitter = function(q, cb){
   //console.log('player.getTwitter FIRED');

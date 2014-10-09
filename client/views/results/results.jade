@@ -20,6 +20,7 @@
           img(src='{{t.user.profile_image_url}}') 
           h4 {{t.user.name}} 
           h5 @{{t.user.screen_name}}
+        h5 {{t.created_at | pre}}
         //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
         //-a(href='https://www.twitter.com/ + {{t.user.screen_name}}')
         h3 {{t.text}}

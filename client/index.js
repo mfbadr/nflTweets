@@ -10,6 +10,7 @@
     .when('/lists',  {templateUrl:'/views/lists/lists.html',   controller:'ListCtrl'})
     .when('/tweets',  {templateUrl:'/views/tweets/tweets.html',   controller:'TweetsCtrl'})
     .when('/results/:listId',  {templateUrl:'/views/results/results.html',   controller:'ResultCtrl'})
+    .when('/edit/:listId',  {templateUrl:'/views/edit/edit.html',   controller:'EditCtrl'})
     .otherwise({redirectTo:'/'});
 
     $httpProvider.interceptors.push('HttpInterceptor');

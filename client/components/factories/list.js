@@ -17,7 +17,10 @@
       return $http.post('/addlist', {list:list});
     }
 
-    return {findByUser:findByUser, saveList:saveList};
+    function update(list){
+      return $http.post('/updatelist', {list:list});
+    }
+    return {findByUser:findByUser, saveList:saveList, update:update};
 
   }]);
 })();
