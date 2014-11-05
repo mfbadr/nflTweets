@@ -4,6 +4,7 @@
   angular.module('nflTweets')
   .controller('TweetsCtrl', ['$routeParams', '$scope', '$interval', 'Player', 'List','Result', function($routeParams, $scope, $interval, Player, List, Result){
     $scope.title = 'TWEETS';
+    $scope.filter = 'lname';
     $scope.filteredTweets = [];
 
     $scope.getTweets = function(){
@@ -33,10 +34,16 @@
       });
     };
 
+    $scope.switchFilter = function(){
+      $scope.filter = $scope.filter === 'displayName' ? 'lname' : 'displayName';
+      $scope.filteredTweets = [];
+      $scope.filterTweets();
+    };
+
     $scope.filterTweets = function(){
       $scope.list.players.forEach(function(player){
         var tempTweets = _.filter($scope.rawTweets, function(t){
-          return t.text.indexOf(player.lname) !== -1;
+          return t.text.indexOf(player[$scope.filter]) !== -1;
         });
         $scope.filteredTweets = $scope.filteredTweets.concat(tempTweets);
       });
