@@ -14,7 +14,10 @@
     h2(ng-show='list') Looked through {{rawTweets.length}} tweets to find {{filteredTweets.length}} that mention {{list.name}}
     h2(ng-show='!list') Loaded {{rawTweets.length}} tweets. Click a team to filter them
     h5 If the tweets aren't showing, try clicking the team name again.
-    h5 Tweets are filtered by players' last name, and are not guaranteed to be about that player
+    h5(ng-show='filter === "lname"') Tweets are filtered by players' last name, and are not guaranteed to be about that player &nbsp;
+      button.btn.btn-primary.btn-xs(ng-click='switchFilter()') Filter by full name
+    h5(ng-show='filter === "displayName"') Tweets are filtered by players' full name. &nbsp;
+      button.btn.btn-primary.btn-xs(ng-click='switchFilter()') Filter by last name
     //-button.btn.btn-primary(ng-click='getTweets()') Get Tweets
     //-button.btn.btn-warning(ng-show='list', ng-click='getTweets(); setList(list)') Tweets not showing?
   .row

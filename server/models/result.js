@@ -65,7 +65,7 @@ Result.getTweets = function(cb){
         twitter.get('/lists/statuses', {list_id:171657820, count:200, page:4},
           function(error, data, response){
           rawTweets = rawTweets.concat(data);
-          twitter.get('/lists/statuses', {list_id:171657820, count:200, page:4},
+          twitter.get('/lists/statuses', {list_id:171657820, count:200, page:5},
             function(error, data, response){
             rawTweets = rawTweets.concat(data);
             cb(rawTweets);
