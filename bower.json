@@ -17,6 +17,7 @@
     "jquery": "~2.1.1",
     "toastr": "~2.0.3",
     "angular-loading-bar": "~0.6.0",
-    "moment": "~2.8.3"
+    "moment": "~2.8.3",
+    "angucomplete": "*"
   }
 }
