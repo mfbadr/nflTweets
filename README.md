@@ -1,46 +1,19 @@
-## name of project
-### Code Badges
-build status icon
-coverage status icon
+## nflTweets.mikeyb.net
+[nflTweets.mikeyb.net](nflTweets.mikeyb.net)
 
-### Screenshots
-![Image1](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/one.jpg)
+### Screenshot
+![Image1](http://mikeyb.net/assets/nfltweets1.png)
 ![Image2](https://raw.githubusercontent.com/nss-cohort-2014-06-07/express-template/master/docs/screenshots/two.jpg)
 
 ### Description
-write a description about your project
+- nflTweets is a fantasy football tool that gives you high-quality Tweets about your fantasy football team, no Twitter account required.
 
-### Models
-```
-Model 1
-```
-
-```
-Model 2
-```
-
-### Database
-```
-Collecion 1
-```
-
-```
-Collection 2
-```
+#### Built on the MEAN stack.
 
 ### Features
-- [x] Feature 1
-- [ ] Feature 2
-- [x] Feature 3
-
-### Running Tests
-```bash
-$ npm install
-$ npm test
-```
-
-### Contributors
-- [Chyld Medford](https://github.com/chyld)
+- [x] Easily create and save multiple fantasy football teams.
+- [x] Only see Tweets that mention your players.
+- [x] High quality information. Tweets are pulled from commentators, officials, coaches, teams, and fantasy experts. 
 
 ### License
 [MIT](LICENSE)
