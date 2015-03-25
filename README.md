@@ -1,4 +1,4 @@
-## nflTweets.mikeyb.net
+## nflTweets
 [nflTweets.mikeyb.net](nflTweets.mikeyb.net)
 
 ### Description
